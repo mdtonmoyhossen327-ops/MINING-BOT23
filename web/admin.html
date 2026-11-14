@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a1626">
+<title>Admin Panel — Lunar Miner</title>
+<link rel="stylesheet" href="app.css">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body class="admin">
+<div class="admin-wrap">
+  <div class="admin-head">
+    <h1>🛠 Admin Panel</h1>
+    <a class="btn ghost" href="index.html" style="text-decoration:none">← Game</a>
+  </div>
+  <div class="demo-banner" id="demoBanner" hidden>DEMO MODE — preview only, save কাজ করবে না</div>
+  <div id="lock" class="lock-screen card" hidden>
+    <div class="emoji">🔒</div>
+    <h2 style="margin:12px 0">Admin only</h2>
+    <p class="muted">এই panel শুধু bot owner দেখতে পারে। Bot-এ /admin command দাও।</p>
+  </div>
+  <div id="panel" hidden>
+    <div class="admin-tabs" id="tabs">
+      <button data-sec="general" class="active">General</button>
+      <button data-sec="levels">Levels</button>
+      <button data-sec="miners">Miners</button>
+      <button data-sec="tasks">Tasks</button>
+      <button data-sec="players">Players</button>
+      <button data-sec="withdrawals">Withdrawals</button>
+    </div>
+
+    <section class="admin-section active" id="sec-general">
+      <div class="card form-grid" id="generalForm"></div>
+      <div class="section-bar"><span class="muted">সব change save করলেই game-এ প্রয়োগ হবে</span><span><button class="btn ghost" id="connectBot">🔗 Connect Telegram bot</button> <button class="btn" id="saveGeneral">Save General</button></span></div>
+    </section>
+
+    <section class="admin-section" id="sec-levels">
+      <div class="card" id="levelsList"></div>
+      <div class="section-bar"><button class="btn ghost" id="addLevel">+ Add level</button><button class="btn" id="saveLevels">Save Levels</button></div>
+    </section>
+
+    <section class="admin-section" id="sec-miners">
+      <div class="card" id="minersList"></div>
+      <div class="section-bar"><button class="btn ghost" id="addMiner">+ Add miner</button><button class="btn" id="saveMiners">Save Miners</button></div>
+    </section>
+
+    <section class="admin-section" id="sec-tasks">
+      <div class="card" id="tasksList"></div>
+      <div class="section-bar"><button class="btn ghost" id="addTask">+ Add task</button><button class="btn" id="saveTasks">Save Tasks</button></div>
+    </section>
+
+    <section class="admin-section" id="sec-players">
+      <div class="card" style="overflow-x:auto"><table class="players" id="playersTable"></table></div>
+    </section>
+
+    <section class="admin-section" id="sec-withdrawals">
+      <div class="card" id="withdrawList"></div>
+    </section>
+  </div>
+</div>
+<div id="toast"></div>
+<script src="admin.js"></script>
+</body>
+</html>
